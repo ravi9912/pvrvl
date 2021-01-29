@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>Pvrvl Accounting</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+</head>
+
+<style type="text/css">
+    *{
+      margin: 1;
+      padding: 1px;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .footer {
+        border-radius: 4px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #1C1C1C ;
+        color: white;
+        text-align: center;
+    }
+    a{
+      color: black;
+    }
+    .navbar-brand {
+      font-weight: 900;
+      font-size: 1.5em;
+    }
+
+    .navbar-brand .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+    @media only screen and (max-width: 767px) {
+      .c_name { font-size: 22px !important; }
+    }
+</style>
+
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <h4 class="navbar-brand" ><strong>PVRVL Accounting</strong></h4>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      {% if user.is_authenticated %}
+        <a class="nav-link active" href='{% url "home:homepage" %}' accesskey="h"><strong>H</strong>ome</a>
+        <a class="nav-link active" href="#" accesskey="l"><strong>L</strong>edgers</a>
+        <a class="nav-link active" href="#" accesskey="j"><strong>J</strong>v</a>
+        <a class="nav-link active" href="#" accesskey="t"><strong>T</strong>railBalance</a>
+
+        {% if user.is_superuser %}
+        <a class="nav-link active" href='{% url "home:create_new_user" %}' accesskey="u"><i class="fa fa-user-plus" aria-hidden="true"></i><strong>U</strong>ser</a>
+        <a class="nav-link active" href='{% url "home:masterlogin" %}' accesskey="u">User Log</a>
+        {% endif %}
+        <a class="nav-link active" href='{% url "home:logout" %}'> <i class="fa fa-sign-out" aria-hidden="true"></i> Signout</a>
+        {% else %}
+        <a class="nav-link active" href='{% url "home:login" %}'> <i class="fa fa-sign-in" aria-hidden="true"></i> Signin</a>
+        {% endif %}
+    </div>
+  </div>
+</nav>
+<br><br><br>
+<i class="fa fa-arrow-left" aria-hidden="true" onclick="window.history.back()"></i>
+{% now "jS F Y H:i" %}
+<h2 class="c_name" align="center">{{ user.userprofile.company_name }}</h2><br>
+{% if messages %}
+  {% for message in messages %}
+      <p id="alert" align="center" style="color:green"; ><b>{{ message }}</b>
+      <i class="fa fa-times" aria-hidden="true" id="hide"></i></p>
+  {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
+
+</body>
+<script>
+
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("#alert").hide();
+  });
+});
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.navbar-brand');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.navbar-brand .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 70*i
+  }).add({
+    targets: '.navbar-brand',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script>
+</html>

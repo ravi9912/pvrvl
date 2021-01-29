@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.body{
+      background-color: #e5eecc;
+    }
+</style>
+</head>
+<body class="body">
+<a href='{% url "home:homepage" %}' class="btn btn-primary" role="button"> Home </a>
+<h1 align="center"> OTP Verification</h1>
+<div class="bg-img">
+  <form  class="container" method="POST">
+    {% csrf_token %}
+    <h2>Pls. Enter your OTP login</h2>
+    {{m}}
+    <h1>Login</h1>
+    <label for="otp">OTP:</label>
+    <input type="password" class="form-control" name="otp1" id="otp1">
+
+    <button type="submit" class="btn">Login</button>
+    
+</ul>
+  </form>
+</div>
+
+</body>
+{% endblock %}
+

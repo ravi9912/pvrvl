@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="card-deck">
+
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <button class="btn btn-primary" accesskey="s"><a href="#"><strong>S</strong>ALES</a></button><br><small>alt+s</small>
+      </div>
+    </div>
+
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <button class="btn btn-warning" accesskey="p"><a href="#"><strong>P</strong>URCHSES</a></button><br><small>alt+p</small>
+      </div>
+    </div>
+
+    <div class="card bg-success">
+      <div class="card-body text-center">
+        <strong>RECEIPTS</strong><br>
+        <button class="btn btn-success" accesskey="r"><a href="#">Bank</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success" accesskey="c"><a href="#">Cash</a></button><br>
+        <small>alt+r &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alt+c</small>
+      </div>
+    </div>
+
+    <div class="card bg-danger">
+      <div class="card-body text-center">
+        <strong>PAYMENTS</strong><br>
+        <button class="btn btn-danger" accesskey="y"><a href="#">Bank</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger" accesskey="a"><a href="#">Cash</a></button><br>
+        <small>alt+y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alt+a</small>
+      </div>
+    </div>  
+
+  </div>
+
+  <br><br>
+
+  <div class="card-deck">
+
+    <div class="card bg-light">
+      <div class="card-body text-center">
+        <button class="btn btn-dark" accesskey="m"><a href="#" style="color: white";><strong>M</strong>ASTER</a></button><br><small>alt+m</small>
+        <br><p ><h6> <button class="btn btn-dark"> <a href="#" style="color: white";>Party</a> </button> <button class="btn btn-dark"> <a href="#" style="color: white";>Product</a> </button> <button class="btn btn-dark"> <a href="#" style="color: white";>Bank</a> </button> <button class="btn btn-dark"> <a href="#" style="color: white";>Head</a> </button> </h6></p> 
+      </div>
+    </div>
+
+    <div class="card bg-dark">
+      <div class="card-body text-center">
+        <button class="btn btn-light"><strong>REPORTS</strong></button><br>
+        <p><br><h6>
+          <button class="btn btn-light"> <a href="#">Sale</a> </button> <button class="btn btn-light"> <a href="#">Purchase</a> </button> <button class="btn btn-light"> <a href="#">Receipt</a> </button> <button class="btn btn-light"> <a href="#">Payment</a> </button>
+        </h6></p>
+      </div>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div class="card-deck">
+
+    <div class="card bg-secondary">
+      <div class="card-body text-center">
+        <button class="btn btn-warning"><strong>CONTRA</strong></button><br>
+        <p style="color: white";><br><h6 style="color: white";><button class="btn btn-secondary">Withdraw</button> &nbsp; <button class="btn btn-secondary">Deposit</button> &nbsp; <button class="btn btn-secondary">Transfer</button></h6></p> 
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}
