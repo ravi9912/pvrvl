@@ -40,7 +40,7 @@ def login(request):
 
 		else:
 			messages.warning(request,'inavalid details,')
-			return render(request,'home/login.html',{'password':password,'username':request.session["uname"]})
+			return render(request,'home/login.html',{'password':request.session["password"],'username':request.session["uname"]})
 
 	else:
 		return render (request,'home/login.html')
