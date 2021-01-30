@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+  .bg-primary {
+    background-color: #069A98 !important;
+  }
+
+  .btn-primary {
+    background-color: #069A98 !important;
+    border: none;
+  }
+
+  .bg-success {
+    background-color: #B3C913 !important;
+  }
+
+  .btn-success {
+    background-color: #B3C913 !important;
+    border: none;
+  }
+</style>
 <div class="container">
   <div class="card-deck">
 
-    <div class="card bg-primary">
+    <div class="card bg-danger">
       <div class="card-body text-center">
-        <button class="btn btn-primary" accesskey="s"><a href="#"><strong>S</strong>ALES</a></button><br><small>alt+s</small>
+        <a href="#" role="button" class="btn btn-danger" style="height: 80px;width: 200px;" accesskey="s" ><strong>S</strong>ALES <br><small>alt+s</small></a>
       </div>
     </div>
 
     <div class="card bg-warning">
       <div class="card-body text-center">
-        <button class="btn btn-warning" accesskey="p"><a href="#"><strong>P</strong>URCHSES</a></button><br><small>alt+p</small>
+        <a href="#" class="btn btn-warning" style="height: 80px;width: 200px;" accesskey="p"><strong>P</strong>URCHSES <br><small>alt+p</small></a>
       </div>
     </div>
 
@@ -23,10 +42,10 @@
       </div>
     </div>
 
-    <div class="card bg-danger">
+    <div class="card bg-primary">
       <div class="card-body text-center">
         <strong>PAYMENTS</strong><br>
-        <button class="btn btn-danger" accesskey="y"><a href="#">Bank</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger" accesskey="a"><a href="#">Cash</a></button><br>
+        <button class="btn btn-primary" accesskey="y"><a href="#">Bank</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" accesskey="a"><a href="#">Cash</a></button><br>
         <small>alt+y &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alt+a</small>
       </div>
     </div>  
